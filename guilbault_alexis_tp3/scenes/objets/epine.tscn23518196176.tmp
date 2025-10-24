@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cabfylvy3du7u"]
+
+[ext_resource type="Texture2D" uid="uid://demudcrntjx5c" path="res://assets/images/epine.png" id="1_spgan"]
+[ext_resource type="Script" uid="uid://cpxwbvdwbh8v5" path="res://scenes/objets/epine.gd" id="1_tcrvm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tcrvm"]
+radius = 23.0
+height = 72.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcrvm"]
+atlas = ExtResource("1_spgan")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1kbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcrvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Epine" type="Node2D"]
+script = ExtResource("1_tcrvm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tcrvm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_o1kbo")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

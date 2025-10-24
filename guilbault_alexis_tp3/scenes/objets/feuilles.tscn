@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwqvcu44ftec"]
+
+[ext_resource type="Texture2D" uid="uid://c2l77nr06y5et" path="res://assets/images/leaves.png" id="2_64xjn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in4cl"]
+atlas = ExtResource("2_64xjn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7aq1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in4cl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwlgf"]
+size = Vector2(23, 15)
+
+[node name="Feuilles" type="Node2D" groups=["feuilles"]]
+
+[node name="Area2D" type="Area2D" parent="." groups=["feuilles"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_7aq1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 7.5)
+shape = SubResource("RectangleShape2D_qwlgf")

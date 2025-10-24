@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtkmuqas7cswb"]
+
+[ext_resource type="Texture2D" uid="uid://4hteitfvov5k" path="res://assets/images/volume_ui.png" id="1_cegmt"]
+[ext_resource type="Script" uid="uid://cvcg5fgyhnyoo" path="res://scripts/volume.gd" id="2_brml0"]
+[ext_resource type="AudioStream" uid="uid://d3iea2cq64pad" path="res://assets/audio/musique/musique_placeholder.mp3" id="3_u28pf"]
+[ext_resource type="AudioStream" uid="uid://cd6ln7q1ujh3b" path="res://assets/audio/atmosphere/ambiance_vent.mp3" id="4_xsgmi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cegmt"]
+atlas = ExtResource("1_cegmt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brml0"]
+atlas = ExtResource("1_cegmt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u28pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cegmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brml0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="volume" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_u28pf")
+script = ExtResource("2_brml0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u28pf")
+parameters/looping = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xsgmi")
+volume_db = -12.0
+autoplay = true
+parameters/looping = true

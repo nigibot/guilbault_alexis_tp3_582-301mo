@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnt58nvnh6bua"]
+
+[ext_resource type="Texture2D" uid="uid://dw5wuhpnc6ndw" path="res://assets/images/wind.png" id="2_n3var"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwl05"]
+atlas = ExtResource("2_n3var")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsgaj"]
+atlas = ExtResource("2_n3var")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv4fc"]
+atlas = ExtResource("2_n3var")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckdnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwl05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsgaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv4fc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ef808"]
+size = Vector2(28, 26)
+
+[node name="Vent" type="Node2D" groups=["vent"]]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_ckdnf")
+frame_progress = 0.213361
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ef808")

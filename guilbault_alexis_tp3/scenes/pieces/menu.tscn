@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://wlnewopm1g5h"]
+
+[ext_resource type="Texture2D" uid="uid://chrddvogak61c" path="res://assets/images/logo.png" id="1_q0o5e"]
+[ext_resource type="Script" uid="uid://dat6a2avqbee2" path="res://scripts/menu.gd" id="2_s1y71"]
+[ext_resource type="AudioStream" uid="uid://dbsmpn4xvi1xo" path="res://assets/audio/sons/selection.mp3" id="3_fasuj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1y71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q0o5e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fasuj"]
+font_size = 32
+font_color = Color(1, 0, 0, 1)
+
+[node name="menu" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0.132132, 0.0510895, 1)
+polygon = PackedVector2Array(0, 1, 1152, 1, 1151, 647, -1, 647)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(565, 171)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_s1y71")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 400.0
+offset_top = 372.0
+offset_right = 719.0
+offset_bottom = 561.0
+text = "1- Plaines Menthes 1
+2- Lac Azur 1"
+label_settings = SubResource("LabelSettings_fasuj")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_s1y71")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Label"]
+stream = ExtResource("3_fasuj")

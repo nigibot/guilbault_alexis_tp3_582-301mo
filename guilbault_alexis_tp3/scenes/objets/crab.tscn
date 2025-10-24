@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4ygwlw8oatj7"]
+
+[ext_resource type="Script" uid="uid://cblndo2biiiwu" path="res://scripts/crab.gd" id="1_c5r3q"]
+[ext_resource type="Texture2D" uid="uid://bkoc16iybk7bk" path="res://assets/images/crab_enemy.png" id="2_3v83c"]
+[ext_resource type="AudioStream" uid="uid://kac5uq10l73j" path="res://assets/audio/sons/marche_crabe.mp3" id="3_3v83c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehi5m"]
+radius = 6.0
+height = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stenn"]
+atlas = ExtResource("2_3v83c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7rnj"]
+atlas = ExtResource("2_3v83c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ixmxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stenn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7rnj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="crab" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="." groups=["crabe"]]
+script = ExtResource("1_c5r3q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ehi5m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_ixmxt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D"]
+position = Vector2(0, -3)
+scale = Vector2(18.44, 10.44)
+stream = ExtResource("3_3v83c")
+autoplay = true
+max_distance = 223.0
+parameters/looping = true

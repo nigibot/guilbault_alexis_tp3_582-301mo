@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://dce2q1d6u7ec"]
+
+[ext_resource type="PackedScene" uid="uid://dtkmuqas7cswb" path="res://scenes/objets/volume.tscn" id="1_d6yg6"]
+[ext_resource type="Script" uid="uid://befwneqi4tej1" path="res://scripts/temps.gd" id="2_vjchr"]
+[ext_resource type="Script" uid="uid://l6e7342qjugl" path="res://scripts/tours.gd" id="3_d7sl3"]
+[ext_resource type="Script" uid="uid://bn8cv626qr4q1" path="res://scripts/texte_boost.gd" id="4_reri1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d7sl3"]
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_reri1"]
+font_size = 47
+font_color = Color(1, 0, 0, 1)
+
+[node name="UiCourse" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="volume" parent="." instance=ExtResource("1_d6yg6")]
+position = Vector2(1064, 600)
+
+[node name="instructions" type="Label" parent="."]
+layout_mode = 0
+offset_right = 325.0
+offset_bottom = 153.0
+label_settings = SubResource("LabelSettings_d7sl3")
+vertical_alignment = 3
+
+[node name="temps" type="Label" parent="."]
+layout_mode = 0
+offset_top = 528.0
+offset_right = 325.0
+offset_bottom = 593.0
+text = "Temps : "
+label_settings = SubResource("LabelSettings_reri1")
+vertical_alignment = 3
+script = ExtResource("2_vjchr")
+
+[node name="tours" type="Label" parent="."]
+layout_mode = 0
+offset_top = 584.0
+offset_right = 325.0
+offset_bottom = 649.0
+text = "Tours : 1/3"
+label_settings = SubResource("LabelSettings_reri1")
+vertical_alignment = 3
+script = ExtResource("3_d7sl3")
+
+[node name="boost" type="Label" parent="."]
+layout_mode = 0
+offset_top = 472.0
+offset_right = 325.0
+offset_bottom = 537.0
+text = "Boost (?)"
+label_settings = SubResource("LabelSettings_reri1")
+vertical_alignment = 3
+script = ExtResource("4_reri1")

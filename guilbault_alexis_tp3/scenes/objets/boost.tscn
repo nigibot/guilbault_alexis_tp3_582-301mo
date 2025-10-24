@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://g7ywuwe5papo"]
+
+[ext_resource type="Texture2D" uid="uid://nv56wfcjcssb" path="res://assets/images/speed_boost.png" id="1_nj6qw"]
+[ext_resource type="AudioStream" uid="uid://bbpsoua511nbw" path="res://assets/audio/sons/boost_pres.mp3" id="2_uyphy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyphy"]
+atlas = ExtResource("1_nj6qw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt43r"]
+atlas = ExtResource("1_nj6qw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0dc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyphy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt43r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l4kt"]
+radius = 16.0
+height = 32.0
+
+[node name="Boost" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w0dc4")
+frame_progress = 0.976391
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_uyphy")
+autoplay = true
+max_distance = 441.0
+attenuation = 1.51572
+parameters/looping = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["boost"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_2l4kt")

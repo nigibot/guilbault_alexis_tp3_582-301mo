@@ -1,0 +1,417 @@
+[gd_scene load_steps=16 format=3 uid="uid://csbethk5kg4nc"]
+
+[ext_resource type="Texture2D" uid="uid://cac0viiq1khkp" path="res://assets/images/sun.png" id="1_3ihvp"]
+[ext_resource type="Texture2D" uid="uid://b07l2l3sikflk" path="res://assets/images/floor_azur.png" id="1_xjk6u"]
+[ext_resource type="AudioStream" uid="uid://bmmwoe5wtscem" path="res://assets/audio/atmosphere/ambiance_vagues.mp3" id="2_2o42i"]
+[ext_resource type="Texture2D" uid="uid://bu4qpp1k4ppbw" path="res://assets/images/boat.png" id="2_t7ho8"]
+[ext_resource type="PackedScene" uid="uid://cjtrykxram8m" path="res://scenes/objets/hors_piste.tscn" id="2_vayh8"]
+[ext_resource type="PackedScene" uid="uid://ci40te88fd7uq" path="res://scenes/objets/but.tscn" id="4_3ihvp"]
+[ext_resource type="PackedScene" uid="uid://b4ygwlw8oatj7" path="res://scenes/objets/crab.tscn" id="4_hroaj"]
+[ext_resource type="PackedScene" uid="uid://bntud7twsv0pf" path="res://scenes/objets/joueur.tscn" id="5_t7ho8"]
+[ext_resource type="PackedScene" uid="uid://dce2q1d6u7ec" path="res://scenes/objets/ui_course.tscn" id="6_2o42i"]
+[ext_resource type="PackedScene" uid="uid://g7ywuwe5papo" path="res://scenes/objets/boost.tscn" id="7_crb17"]
+[ext_resource type="PackedScene" uid="uid://dgcwa5l572jqd" path="res://scenes/objets/fishhook.tscn" id="8_vayh8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o42i"]
+atlas = ExtResource("2_t7ho8")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crb17"]
+atlas = ExtResource("2_t7ho8")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4hd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o42i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crb17")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1v4ti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xjk6u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="game" type="Node2D"]
+metadata/_edit_vertical_guides_ = [13824.0, 13825.0]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ciel" type="Polygon2D" parent="Background"]
+scale = Vector2(12.0083, 0.359741)
+color = Color(1, 0.466667, 0, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+uv = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+
+[node name="Sun" type="Sprite2D" parent="Background/ciel"]
+position = Vector2(565.611, 622.67)
+scale = Vector2(0.41638, 13.8989)
+texture = ExtResource("1_3ihvp")
+
+[node name="eau" type="Polygon2D" parent="Background"]
+position = Vector2(0, 233)
+scale = Vector2(12, 0.097)
+color = Color(0, 0.498039, 1, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+uv = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Background/eau"]
+position = Vector2(566, 319.588)
+stream = ExtResource("2_2o42i")
+volume_db = 5.429
+autoplay = true
+max_distance = 2435.0
+attenuation = 0.249999
+parameters/looping = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(1360, 256)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u4hd4")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(3728, 264)
+scale = Vector2(-3, 3)
+sprite_frames = SubResource("SpriteFrames_u4hd4")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(9456, 256)
+scale = Vector2(-3, 3)
+sprite_frames = SubResource("SpriteFrames_u4hd4")
+autoplay = "default"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(12216, 272)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u4hd4")
+autoplay = "default"
+
+[node name="sol" type="Polygon2D" parent="Background"]
+scale = Vector2(12, 1)
+color = Color(0.999999, 0.933283, 0.570152, 1)
+polygon = PackedVector2Array(0, 296, 1064.02, 296, 1152, 296, 1152, 461.787, 1152, 648, 0, 648)
+
+[node name="plancher" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="plancher"]
+position = Vector2(6897.76, 584.235)
+scale = Vector2(433.125, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="plancher"]
+position = Vector2(6897.48, 328.095)
+scale = Vector2(433.125, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="plancher"]
+position = Vector2(6897.76, 520.175)
+scale = Vector2(433.125, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="plancher"]
+position = Vector2(6897.76, 392)
+scale = Vector2(433.125, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="plancher"]
+position = Vector2(6897.76, 456.1)
+scale = Vector2(433.125, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="But2" parent="." instance=ExtResource("4_3ihvp")]
+position = Vector2(63, 456)
+scale = Vector2(4, 5)
+
+[node name="But" parent="." instance=ExtResource("4_3ihvp")]
+position = Vector2(13764, 456)
+scale = Vector2(3.742, 4.99)
+
+[node name="Hors-piste" type="Node2D" parent="."]
+position = Vector2(1021, 420)
+
+[node name="HorsPiste" parent="Hors-piste" instance=ExtResource("2_vayh8")]
+position = Vector2(2259, 134)
+scale = Vector2(9.28, 4.08)
+
+[node name="HorsPiste2" parent="Hors-piste" instance=ExtResource("2_vayh8")]
+position = Vector2(2257, -60)
+scale = Vector2(9.28, 4)
+
+[node name="HorsPiste3" parent="Hors-piste" instance=ExtResource("2_vayh8")]
+position = Vector2(9474, 164)
+scale = Vector2(200, 2)
+
+[node name="HorsPiste4" parent="Hors-piste" instance=ExtResource("2_vayh8")]
+position = Vector2(9474, -92)
+scale = Vector2(200, 1.905)
+
+[node name="joueur" parent="." instance=ExtResource("5_t7ho8")]
+position = Vector2(576, 415)
+
+[node name="Camera2D2" type="Camera2D" parent="joueur"]
+scale = Vector2(10, 1)
+limit_left = 0
+limit_top = 0
+limit_right = 13824
+limit_bottom = 648
+
+[node name="Crabes" type="Node2D" parent="."]
+position = Vector2(1021, 420)
+
+[node name="Crab" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(152, -36)
+scale = Vector2(3, 3)
+
+[node name="Crab10" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(152, 95)
+scale = Vector2(3, 3)
+
+[node name="Crab11" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(-58, 160)
+scale = Vector2(3, 3)
+
+[node name="Crab12" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(-58, -99)
+scale = Vector2(3, 3)
+
+[node name="Crab2" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(698, 158)
+scale = Vector2(3, 3)
+
+[node name="Crab3" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(996, 29)
+scale = Vector2(3, 3)
+
+[node name="Crab4" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(1243, -33)
+scale = Vector2(3, 3)
+
+[node name="Crab5" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(1438, 92)
+scale = Vector2(3, 3)
+
+[node name="Crab6" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(1645, -98)
+scale = Vector2(3, 3)
+
+[node name="Crab7" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(1820, 33)
+scale = Vector2(3, 3)
+
+[node name="Crab9" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(2562, 30)
+scale = Vector2(3, 3)
+
+[node name="Crab13" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(4936, 158)
+scale = Vector2(3, 3)
+
+[node name="Crab19" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(5241, -33)
+scale = Vector2(3, 3)
+
+[node name="Crab20" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(5241, 91)
+scale = Vector2(3, 3)
+
+[node name="Crab21" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(5605, 161)
+scale = Vector2(3, 3)
+
+[node name="Crab22" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(6346, 35)
+scale = Vector2(3, 3)
+
+[node name="Crab23" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(6780, -31)
+scale = Vector2(3, 3)
+
+[node name="Crab24" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(7129, 35)
+scale = Vector2(3, 3)
+
+[node name="Crab25" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(7811, 91)
+scale = Vector2(3, 3)
+
+[node name="Crab28" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(9004, 30)
+scale = Vector2(3, 3)
+
+[node name="Crab29" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(9924, 91)
+scale = Vector2(3, 3)
+
+[node name="Crab30" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(10796, 37)
+scale = Vector2(3, 3)
+
+[node name="Crab32" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(12447, 101)
+scale = Vector2(3, 3)
+
+[node name="Crab31" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(11278, 96)
+scale = Vector2(3, 3)
+
+[node name="Crab26" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(8534, -35)
+scale = Vector2(3, 3)
+
+[node name="Crab27" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(8534, -35)
+scale = Vector2(3, 3)
+
+[node name="Crab14" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(4006, 158)
+scale = Vector2(3, 3)
+
+[node name="Crab15" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(2980, -35)
+scale = Vector2(3, 3)
+
+[node name="Crab16" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(2980, 95)
+scale = Vector2(3, 3)
+
+[node name="Crab17" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(2742, 161)
+scale = Vector2(3, 3)
+
+[node name="Crab18" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(2742, -98)
+scale = Vector2(3, 3)
+
+[node name="Crab8" parent="Crabes" instance=ExtResource("4_hroaj")]
+position = Vector2(1997, 158)
+scale = Vector2(3, 3)
+
+[node name="Pêcheurs" type="Node2D" parent="."]
+position = Vector2(1021, 420)
+
+[node name="Fishhook" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(3406, -136)
+scale = Vector2(3, 3)
+
+[node name="Fishhook2" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(3640, -8)
+scale = Vector2(3, 3)
+
+[node name="Fishhook3" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(3992, -199)
+scale = Vector2(3, 3)
+
+[node name="Fishhook4" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(4350, -73)
+scale = Vector2(3, 3)
+
+[node name="Fishhook5" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(4616, -9)
+scale = Vector2(3, 3)
+
+[node name="Fishhook6" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(4871, -135)
+scale = Vector2(3, 3)
+
+[node name="Fishhook7" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(5480, -13)
+scale = Vector2(3, 3)
+
+[node name="Fishhook8" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(5744, -205)
+scale = Vector2(3, 3)
+
+[node name="Fishhook9" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(5849, -71)
+scale = Vector2(3, 3)
+
+[node name="Fishhook10" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(6083, -10)
+scale = Vector2(3, 3)
+
+[node name="Fishhook11" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(6554, -72)
+scale = Vector2(3, 3)
+
+[node name="Fishhook12" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(6862, -5)
+scale = Vector2(3, 3)
+
+[node name="Fishhook13" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(7128, -138)
+scale = Vector2(3, 3)
+
+[node name="Fishhook14" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(7467, -67)
+scale = Vector2(3, 3)
+
+[node name="Fishhook15" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(7796, -138)
+scale = Vector2(3, 3)
+
+[node name="Fishhook16" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(8114, -12)
+scale = Vector2(3, 3)
+
+[node name="Fishhook17" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(8534, -63)
+scale = Vector2(3, 3)
+
+[node name="Fishhook18" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(9014, -139)
+scale = Vector2(3, 3)
+
+[node name="Fishhook19" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(9312, -73)
+scale = Vector2(3, 3)
+
+[node name="Fishhook20" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(9600, -12)
+scale = Vector2(3, 3)
+
+[node name="Fishhook21" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(10186, -68)
+scale = Vector2(3, 3)
+
+[node name="Fishhook22" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(10798, -134)
+scale = Vector2(3, 3)
+
+[node name="Fishhook23" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(11693, -134)
+scale = Vector2(3, 3)
+
+[node name="Fishhook24" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(11698, -13)
+scale = Vector2(3, 3)
+
+[node name="Fishhook25" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(12072, -74)
+scale = Vector2(3, 3)
+
+[node name="Fishhook26" parent="Pêcheurs" instance=ExtResource("8_vayh8")]
+position = Vector2(12436, -140)
+scale = Vector2(3, 3)
+
+[node name="Boost" parent="." instance=ExtResource("7_crb17")]
+position = Vector2(1146, 457)
+scale = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UiCourse" parent="CanvasLayer" instance=ExtResource("6_2o42i")]

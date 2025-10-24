@@ -1,0 +1,1017 @@
+[gd_scene load_steps=22 format=3 uid="uid://368p57k2tkc4"]
+
+[ext_resource type="Texture2D" uid="uid://8ib7u1ihee7b" path="res://assets/images/plants.png" id="1_kurne"]
+[ext_resource type="Texture2D" uid="uid://cac0viiq1khkp" path="res://assets/images/sun.png" id="1_th5n5"]
+[ext_resource type="PackedScene" uid="uid://bntud7twsv0pf" path="res://scenes/objets/joueur.tscn" id="1_xv5en"]
+[ext_resource type="PackedScene" uid="uid://dce2q1d6u7ec" path="res://scenes/objets/ui_course.tscn" id="2_s6bqy"]
+[ext_resource type="Texture2D" uid="uid://cft7p6o08yh5m" path="res://assets/images/hills.png" id="2_u2tr1"]
+[ext_resource type="Texture2D" uid="uid://fu1bofot0o18" path="res://assets/images/trees.png" id="3_t2t2i"]
+[ext_resource type="Texture2D" uid="uid://dhtxrqsr46bl" path="res://assets/images/floor_mint.png" id="4_lxfqr"]
+[ext_resource type="PackedScene" uid="uid://ci40te88fd7uq" path="res://scenes/objets/but.tscn" id="4_yapeh"]
+[ext_resource type="PackedScene" uid="uid://cabfylvy3du7u" path="res://scenes/objets/epine.tscn" id="5_1v4ti"]
+[ext_resource type="PackedScene" uid="uid://cjtrykxram8m" path="res://scenes/objets/hors_piste.tscn" id="6_b0mvn"]
+[ext_resource type="PackedScene" uid="uid://g7ywuwe5papo" path="res://scenes/objets/boost.tscn" id="7_b0mvn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_car3p"]
+atlas = ExtResource("2_u2tr1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wemlr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_car3p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djngv"]
+atlas = ExtResource("3_t2t2i")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g10fl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djngv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3724"]
+atlas = ExtResource("1_kurne")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nfec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3724")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yapeh"]
+atlas = ExtResource("4_lxfqr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1v4ti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yapeh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_apkf6"]
+script/source = "extends Node2D"
+
+[sub_resource type="GDScript" id="GDScript_g7j1h"]
+script/source = "extends Node2D
+"
+
+[node name="game" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ciel" type="Polygon2D" parent="Background"]
+scale = Vector2(10, 0.457)
+color = Color(0.38, 0.8835, 0.95, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+uv = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+
+[node name="sol" type="Polygon2D" parent="Background"]
+scale = Vector2(10, 1)
+color = Color(0.596078, 0.984314, 0.596078, 1)
+polygon = PackedVector2Array(0, 296, 1064.02, 296, 1152, 296, 1152, 461.787, 1152, 648, 0, 648)
+
+[node name="BG-soleil" type="Node2D" parent="Background"]
+
+[node name="Sun" type="Sprite2D" parent="Background/BG-soleil"]
+position = Vector2(288, 128)
+scale = Vector2(4, 4)
+texture = ExtResource("1_th5n5")
+
+[node name="BG-collines" type="Node2D" parent="Background"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(160, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(480, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(800, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(1120, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(1440, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(1760, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(2080, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(2400, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(2720, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(3040, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(3360, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(3680, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(4000, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(4320, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(4640, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(4960, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(5280, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(5600, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(5920, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(6240, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(6560, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(6880, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(7200, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(7520, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(7840, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(8160, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(8480, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(8800, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(9120, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(9440, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(9760, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D32" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(10080, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D33" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(10400, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(10720, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D35" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(11040, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="AnimatedSprite2D36" type="AnimatedSprite2D" parent="Background/BG-collines"]
+position = Vector2(11360, 136)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wemlr")
+
+[node name="BG-arbres" type="Node2D" parent="Background"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/BG-arbres"]
+position = Vector2(2736, 200)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g10fl")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Background/BG-arbres"]
+position = Vector2(4408, 200)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g10fl")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Background/BG-arbres"]
+position = Vector2(4504, 200)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g10fl")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Background/BG-arbres"]
+position = Vector2(6968, 200)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g10fl")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Background/BG-arbres"]
+position = Vector2(7072, 200)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g10fl")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Background/BG-arbres"]
+position = Vector2(7176, 200)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g10fl")
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Background/BG-arbres"]
+position = Vector2(9186, 200)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g10fl")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Background/BG-arbres"]
+position = Vector2(9288, 200)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g10fl")
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Background/BG-arbres"]
+position = Vector2(9392, 200)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g10fl")
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Background/BG-arbres"]
+position = Vector2(9496, 200)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_g10fl")
+
+[node name="BG-herbe" type="Node2D" parent="Background"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(72, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(216, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(360, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(504, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(648, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(792, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(936, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(1080, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(1224, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(1368, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(1512, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(1656, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(1800, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(1944, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(2088, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(2232, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(2376, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(2520, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(2664, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(2808, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(2952, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(3096, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(3240, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(3384, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(3528, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(3672, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(3816, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(3960, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(4104, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(4248, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(4392, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D32" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(4536, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D33" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(4680, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(4824, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D35" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(4968, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D36" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(5112, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(5256, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D38" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(5400, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D39" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(5544, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D40" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(5688, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D41" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(5832, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D42" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(5976, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D43" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(6120, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D44" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(6264, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D45" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(6408, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D46" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(6552, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D47" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(6696, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D48" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(6840, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D49" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(6984, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D50" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(7128, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D51" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(7272, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D52" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(7416, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D53" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(7560, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D54" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(7704, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D55" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(7848, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D56" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(7992, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D57" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(8136, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D58" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(8280, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D59" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(8424, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D60" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(8568, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D61" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(8712, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D62" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(8856, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D63" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(9000, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D64" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(9144, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D65" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(9288, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D66" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(9432, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D67" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(9576, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D68" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(9720, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D69" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(9864, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D70" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(10008, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D71" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(10152, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D72" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(10296, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D73" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(10440, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D74" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(10584, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D75" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(10728, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D76" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(10872, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D77" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(11016, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D78" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(11160, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D79" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(11304, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="AnimatedSprite2D80" type="AnimatedSprite2D" parent="Background/BG-herbe"]
+position = Vector2(11448, 248)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1nfec")
+
+[node name="plancher" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="plancher"]
+position = Vector2(5678.28, 584.235)
+scale = Vector2(358.08, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="plancher"]
+position = Vector2(5678, 328.095)
+scale = Vector2(358.08, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="plancher"]
+position = Vector2(5678.28, 520.175)
+scale = Vector2(358.08, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="plancher"]
+position = Vector2(5678.28, 392)
+scale = Vector2(358.08, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="plancher"]
+position = Vector2(5678.28, 456.1)
+scale = Vector2(358.08, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="horspistes" type="Node2D" parent="."]
+
+[node name="HorsPiste3" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(1737, 328.5)
+scale = Vector2(5, 2)
+
+[node name="HorsPiste4" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(1737, 520)
+scale = Vector2(5, 6)
+
+[node name="HorsPiste6" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(4932, 520)
+scale = Vector2(15, 6)
+
+[node name="HorsPiste5" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(3015, 394)
+scale = Vector2(50, 6)
+
+[node name="HorsPiste7" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(6699, 456)
+scale = Vector2(25, 6)
+
+[node name="HorsPiste8" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(8212, 552)
+scale = Vector2(25, 4)
+
+[node name="HorsPiste9" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(8995, 328)
+scale = Vector2(5, 2)
+
+[node name="HorsPiste10" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(8995, 456)
+scale = Vector2(5, 2)
+
+[node name="HorsPiste12" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(9799, 392)
+scale = Vector2(25, 6)
+
+[node name="HorsPiste13" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(10730, 522)
+scale = Vector2(25, 6)
+
+[node name="HorsPiste11" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(8995, 584)
+scale = Vector2(5, 2)
+
+[node name="HorsPiste" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(1154, 360)
+scale = Vector2(10, 4)
+
+[node name="HorsPiste2" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(1154, 552.24)
+scale = Vector2(10, 4)
+
+[node name="epines" type="Node2D" parent="."]
+
+[node name="Epine" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(3162, 579)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine2" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4184, 579)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine3" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4184, 517)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine4" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4184, 452)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine5" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4424, 325)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine6" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4424, 453)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine7" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4424, 580)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine8" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4907, 324)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine9" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5544, 324)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine10" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5550, 450)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine11" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5554, 581)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine20" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7340, 324)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine21" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7346, 450)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine22" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7350, 581)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine12" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5745, 517)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine13" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5743, 391)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine14" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5902, 322)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine15" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5906, 453)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine16" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5908, 582)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine17" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(6077, 520)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine18" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(6077, 389)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine19" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(6554, 325)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine23" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7569, 522)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine24" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7744, 452)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine25" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7890, 320)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine26" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(8081, 389)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine27" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(8335, 452)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine28" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(8413, 392)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine29" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(8574, 326)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine30" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(8582, 454)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine31" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(9210, 391)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine32" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(9218, 519)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine33" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(9452, 582)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine34" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(9683, 514)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine35" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(9969, 582)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine36" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(10772, 326)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine42" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(10944, 390)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine37" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(10395, 326)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine38" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(10586, 391)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine39" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(11227, 453)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine41" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(11232, 579)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine40" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(11224, 325)
+script = SubResource("GDScript_apkf6")
+
+[node name="But2" parent="." instance=ExtResource("4_yapeh")]
+position = Vector2(63, 456)
+scale = Vector2(4, 5)
+script = SubResource("GDScript_g7j1h")
+
+[node name="But" parent="." instance=ExtResource("4_yapeh")]
+position = Vector2(11466, 456)
+scale = Vector2(3.742, 4.99)
+script = SubResource("GDScript_g7j1h")
+
+[node name="joueur" parent="." instance=ExtResource("1_xv5en")]
+position = Vector2(576, 415)
+
+[node name="Camera2D2" type="Camera2D" parent="joueur"]
+scale = Vector2(10, 1)
+limit_left = 0
+limit_top = 0
+limit_right = 11520
+limit_bottom = 648
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UiCourse" parent="CanvasLayer" instance=ExtResource("2_s6bqy")]
+
+[node name="Boost" parent="." instance=ExtResource("7_b0mvn")]
+position = Vector2(1146, 457)
+scale = Vector2(2, 2)
