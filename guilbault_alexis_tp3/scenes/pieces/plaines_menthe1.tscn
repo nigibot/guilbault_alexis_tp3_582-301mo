@@ -79,7 +79,7 @@ script/source = "extends Node2D"
 script/source = "extends Node2D
 "
 
-[node name="game" type="Node2D"]
+[node name="plaines_menthes1" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
 

@@ -17,23 +17,31 @@ var boosttimer = 0
 
 var rng = RandomNumberGenerator.new()
 
+var gravityMode = false
+
 enum States {
 	NORMAL,
 	OFFROAD,
-	BOOST
+	BOOST,
+	WIND,
+	HOLE,
+	WATER
 }
 
 var speed_state = States.NORMAL
 
+func _ready() -> void:
+	$"./AnimatedSprite2D".animation = "normal"
+
 func _input(_event):
-	if Input.is_action_just_pressed("Up") && hspeed != 0:
+	if Input.is_action_just_pressed("Up") && hspeed != 0 && gravityMode == false && speed_state != States.HOLE:
 		if lane != 1 and vspeed == 0:
 			lane -= 1
 			$"../joueur".rotation = deg_to_rad(-15) 
 			vspeed = -4
 			$"./AudioStreamPlayer".play()
 	
-	if Input.is_action_just_pressed("Down") && hspeed != 0:
+	if Input.is_action_just_pressed("Down") && hspeed != 0 && gravityMode == false && speed_state != States.HOLE:
 		if lane != 5 and vspeed == 0:
 			lane += 1
 			$"../joueur".rotation = deg_to_rad(15) 
@@ -69,6 +77,10 @@ func _process(_delta: float) -> void:
 			maxspeed = 7
 		States.OFFROAD:
 			maxspeed = 3
+		States.WIND:
+			maxspeed = 4
+		States.HOLE:
+			maxspeed = 1
 		States.BOOST:
 			maxspeed = 20
 			hspeed = maxspeed
@@ -89,6 +101,12 @@ func _process(_delta: float) -> void:
 			$"./AudioStreamPlayer2".stop()
 		
 		if speed_state == States.OFFROAD:
+			$"./AudioStreamPlayer3".play()
+			$"./AnimatedSprite2D".animation = "offroad"
+		else:
+			$"./AudioStreamPlayer3".stop()
+		
+		if speed_state == States.WIND:
 			$"./AudioStreamPlayer3".play()
 			$"./AnimatedSprite2D".animation = "offroad"
 		else:
@@ -119,6 +137,10 @@ func _process(_delta: float) -> void:
 	if $"../joueur".position.y == vgoal:
 		$"../joueur".rotation = 0
 		vspeed = 0
+		gravityMode = false
+	
+	if gravityMode == true:
+		vspeed += 0.5
 	
 	$"../joueur".position.y += vspeed
 	$"../joueur".position.x += hspeed
@@ -136,8 +158,6 @@ func _on_area_2d_area_entered(area):
 		$"../joueur".position.x = 576
 		lap += 1
 		print(var_to_str(lap) + "/3")
-		if lap == 4:
-			get_tree().change_scene_to_file("res://scenes/pieces/menu.tscn")
 		$"./LapFinished".play()
 	elif area.is_in_group("but"):
 		$"../joueur".position.x = 576
@@ -173,8 +193,34 @@ func _on_area_2d_area_entered(area):
 		area.queue_free()
 		if rng.randi_range(1,10) > 9:
 			boostitem = true
+	
+	if area.is_in_group("vent"):
+		print("Dans le vent !!!!")
+		speed_state = States.WIND
+	
+	if area.is_in_group("trou") && gravityMode == false:
+		print("Chute !")
+		speed_state = States.HOLE
+	
+	if area.is_in_group("jumppad") && gravityMode == false && vspeed == 0:
+		vspeed = -10
+		boosttimer = 20
+		$"../joueur".position.y -= 10
+		gravityMode = true
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("horspiste") && speed_state == States.OFFROAD:
 		print("Retour à la normale")
 		speed_state = States.NORMAL
+	
+	if area.is_in_group("vent") && speed_state == States.WIND:
+		print("Retour à la normale")
+		speed_state = States.NORMAL
+	
+	if area.is_in_group("trou") && speed_state == States.HOLE:
+		speed_state = States.NORMAL
+
+func _on_animated_sprite_2d_animation_looped() -> void:
+	if speed_state == States.HOLE :
+		$"../joueur".position.x -= 50
+		hspeed = 0

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://tuilrnuh1pce"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfsse"]
+size = Vector2(20, 20.2113)
+
+[node name="HoleNuage" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(0.807692, 1)
+color = Color(0.141176, 0.890196, 1, 1)
+polygon = PackedVector2Array(0, 0, 78, 0, 78, 57, 0, 57)
+
+[node name="Area2D" type="Area2D" parent="." groups=["trou"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(31.49, 28.535)
+scale = Vector2(3.142, 2.655)
+shape = SubResource("RectangleShape2D_hfsse")

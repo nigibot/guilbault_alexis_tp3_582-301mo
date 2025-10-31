@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://j271hfcrwm3s"]
+[gd_scene load_steps=13 format=3 uid="uid://j271hfcrwm3s"]
 
 [ext_resource type="Texture2D" uid="uid://dhtxrqsr46bl" path="res://assets/images/floor_mint.png" id="1_hiyvr"]
 [ext_resource type="PackedScene" uid="uid://ci40te88fd7uq" path="res://scenes/objets/but.tscn" id="2_s8l2s"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bwqvcu44ftec" path="res://scenes/objets/feuilles.tscn" id="7_g7j1h"]
 [ext_resource type="PackedScene" uid="uid://g7ywuwe5papo" path="res://scenes/objets/boost.tscn" id="7_rguk2"]
 [ext_resource type="PackedScene" uid="uid://dce2q1d6u7ec" path="res://scenes/objets/ui_course.tscn" id="8_a7ffh"]
+[ext_resource type="PackedScene" uid="uid://cjtrykxram8m" path="res://scenes/objets/hors_piste.tscn" id="8_apkf6"]
+[ext_resource type="PackedScene" uid="uid://dnt58nvnh6bua" path="res://scenes/objets/vent.tscn" id="9_s8l2s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1v4ti"]
 animations = [{
@@ -26,7 +28,7 @@ script/source = "extends Node2D
 [sub_resource type="GDScript" id="GDScript_apkf6"]
 script/source = "extends Node2D"
 
-[node name="game" type="Node2D"]
+[node name="foret_cramoisie1" type="Node2D"]
 metadata/_edit_vertical_guides_ = [13824.0, 13825.0]
 
 [node name="ciel" type="Polygon2D" parent="."]
@@ -67,6 +69,16 @@ position = Vector2(6897.76, 456.1)
 scale = Vector2(433.125, 2)
 sprite_frames = SubResource("SpriteFrames_1v4ti")
 
+[node name="horspiste" type="Node2D" parent="."]
+
+[node name="HorsPiste" parent="horspiste" instance=ExtResource("8_apkf6")]
+position = Vector2(5664, 392)
+scale = Vector2(63.855, 6.08)
+
+[node name="HorsPiste2" parent="horspiste" instance=ExtResource("8_apkf6")]
+position = Vector2(7895, 521)
+scale = Vector2(63.855, 6.08)
+
 [node name="But2" parent="." instance=ExtResource("2_s8l2s")]
 position = Vector2(63, 456)
 scale = Vector2(4, 5)
@@ -76,24 +88,6 @@ script = SubResource("GDScript_g7j1h")
 position = Vector2(13764, 456)
 scale = Vector2(3.742, 4.99)
 script = SubResource("GDScript_g7j1h")
-
-[node name="joueur" parent="." instance=ExtResource("4_bg32q")]
-position = Vector2(576, 415)
-
-[node name="Camera2D2" type="Camera2D" parent="joueur"]
-scale = Vector2(10, 1)
-limit_left = 0
-limit_top = 0
-limit_right = 13824
-limit_bottom = 648
-
-[node name="Boost" parent="." instance=ExtResource("7_rguk2")]
-position = Vector2(1148, 583)
-scale = Vector2(2, 2)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UiCourse" parent="CanvasLayer" instance=ExtResource("8_a7ffh")]
 
 [node name="epines" type="Node2D" parent="."]
 
@@ -145,6 +139,58 @@ script = SubResource("GDScript_apkf6")
 position = Vector2(3643, 328)
 script = SubResource("GDScript_apkf6")
 
+[node name="Epine46" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(12670, 450)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine47" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(12670, 324)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine48" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(12670, 578)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine49" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(12833, 516)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine50" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(12833, 389)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine51" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(12997, 451)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine52" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(12997, 325)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine53" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(12997, 579)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine54" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(13156, 516)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine55" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(13156, 389)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine56" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(13320, 451)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine57" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(13320, 325)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine58" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(13320, 579)
+script = SubResource("GDScript_apkf6")
+
 [node name="Epine14" parent="epines" instance=ExtResource("6_2cc0t")]
 position = Vector2(3643, 582)
 script = SubResource("GDScript_apkf6")
@@ -173,6 +219,102 @@ script = SubResource("GDScript_apkf6")
 position = Vector2(4339, 520)
 script = SubResource("GDScript_apkf6")
 
+[node name="Epine22" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(4693, 580)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine23" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(5059, 516)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine24" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(5426, 579)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine25" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(5788, 580)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine26" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(6110, 520)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine28" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(7047, 324)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine32" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(7325, 388)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine33" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(7830, 388)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine34" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(8324, 388)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine35" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(8770, 388)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine36" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(9233, 583)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine37" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(9400, 519)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine38" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(9621, 579)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine39" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(9769, 517)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine40" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(9918, 577)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine41" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(10279, 387)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine42" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(10454, 325)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine43" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(10636, 389)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine44" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(10850, 324)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine45" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(11035, 388)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine29" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(7577, 324)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine30" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(8077, 324)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine31" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(8534, 324)
+script = SubResource("GDScript_apkf6")
+
+[node name="Epine27" parent="epines" instance=ExtResource("6_2cc0t")]
+position = Vector2(6419, 581)
+script = SubResource("GDScript_apkf6")
+
 [node name="Epine21" parent="epines" instance=ExtResource("6_2cc0t")]
 position = Vector2(4339, 393)
 script = SubResource("GDScript_apkf6")
@@ -182,6 +324,54 @@ position = Vector2(1454, 583)
 script = SubResource("GDScript_apkf6")
 
 [node name="feuilles" type="Node2D" parent="."]
+
+[node name="Feuilles43" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(12439, 380)
+scale = Vector2(2, 2)
+
+[node name="Feuilles44" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(12439, 509)
+scale = Vector2(2, 2)
+
+[node name="Feuilles45" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(12211, 573)
+scale = Vector2(2, 2)
+
+[node name="Feuilles46" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(12211, 445)
+scale = Vector2(2, 2)
+
+[node name="Feuilles47" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(12211, 316)
+scale = Vector2(2, 2)
+
+[node name="Feuilles48" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(12024, 380)
+scale = Vector2(2, 2)
+
+[node name="Feuilles49" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(12024, 509)
+scale = Vector2(2, 2)
+
+[node name="Feuilles50" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(11635, 380)
+scale = Vector2(2, 2)
+
+[node name="Feuilles51" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(11635, 509)
+scale = Vector2(2, 2)
+
+[node name="Feuilles52" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(11796, 573)
+scale = Vector2(2, 2)
+
+[node name="Feuilles53" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(11796, 445)
+scale = Vector2(2, 2)
+
+[node name="Feuilles54" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(11796, 316)
+scale = Vector2(2, 2)
 
 [node name="Feuilles" parent="feuilles" instance=ExtResource("7_g7j1h")]
 position = Vector2(1450, 511)
@@ -239,6 +429,106 @@ scale = Vector2(2, 2)
 position = Vector2(2701, 576)
 scale = Vector2(2, 2)
 
+[node name="Feuilles18" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(4688, 511)
+scale = Vector2(2, 2)
+
+[node name="Feuilles19" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(5061, 574)
+scale = Vector2(2, 2)
+
+[node name="Feuilles20" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(5420, 512)
+scale = Vector2(2, 2)
+
+[node name="Feuilles21" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(5784, 511)
+scale = Vector2(2, 2)
+
+[node name="Feuilles22" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(6109, 573)
+scale = Vector2(2, 2)
+
+[node name="Feuilles24" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(7046, 380)
+scale = Vector2(2, 2)
+
+[node name="Feuilles28" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(7322, 320)
+scale = Vector2(2, 2)
+
+[node name="Feuilles32" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(9254, 384)
+scale = Vector2(2, 2)
+
+[node name="Feuilles33" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(9478, 319)
+scale = Vector2(2, 2)
+
+[node name="Feuilles34" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(9623, 444)
+scale = Vector2(2, 2)
+
+[node name="Feuilles35" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(9848, 384)
+scale = Vector2(2, 2)
+
+[node name="Feuilles36" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(10325, 451)
+scale = Vector2(2, 2)
+
+[node name="Feuilles37" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(10440, 509)
+scale = Vector2(2, 2)
+
+[node name="Feuilles38" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(10541, 576)
+scale = Vector2(2, 2)
+
+[node name="Feuilles39" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(10656, 512)
+scale = Vector2(2, 2)
+
+[node name="Feuilles40" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(10780, 448)
+scale = Vector2(2, 2)
+
+[node name="Feuilles41" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(10782, 574)
+scale = Vector2(2, 2)
+
+[node name="Feuilles42" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(10915, 514)
+scale = Vector2(2, 2)
+
+[node name="Feuilles29" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(7827, 320)
+scale = Vector2(2, 2)
+
+[node name="Feuilles30" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(8321, 320)
+scale = Vector2(2, 2)
+
+[node name="Feuilles31" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(8767, 320)
+scale = Vector2(2, 2)
+
+[node name="Feuilles25" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(7576, 380)
+scale = Vector2(2, 2)
+
+[node name="Feuilles26" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(8076, 380)
+scale = Vector2(2, 2)
+
+[node name="Feuilles27" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(8533, 380)
+scale = Vector2(2, 2)
+
+[node name="Feuilles23" parent="feuilles" instance=ExtResource("7_g7j1h")]
+position = Vector2(6417, 515)
+scale = Vector2(2, 2)
+
 [node name="Feuilles16" parent="feuilles" instance=ExtResource("7_g7j1h")]
 position = Vector2(2701, 448)
 scale = Vector2(2, 2)
@@ -250,3 +540,33 @@ scale = Vector2(2, 2)
 [node name="Feuilles2" parent="feuilles" instance=ExtResource("7_g7j1h")]
 position = Vector2(1450, 382)
 scale = Vector2(2, 2)
+
+[node name="joueur" parent="." instance=ExtResource("4_bg32q")]
+position = Vector2(576, 415)
+
+[node name="Camera2D2" type="Camera2D" parent="joueur"]
+scale = Vector2(10, 1)
+limit_left = 0
+limit_top = 0
+limit_right = 13824
+limit_bottom = 648
+
+[node name="Vent" parent="." instance=ExtResource("9_s8l2s")]
+position = Vector2(9582, 390)
+scale = Vector2(28.48, 7)
+
+[node name="Vent2" parent="." instance=ExtResource("9_s8l2s")]
+position = Vector2(10626, 521)
+scale = Vector2(28.48, 7)
+
+[node name="Vent3" parent="." instance=ExtResource("9_s8l2s")]
+position = Vector2(12358, 457)
+scale = Vector2(59.492, 11.6)
+
+[node name="Boost" parent="." instance=ExtResource("7_rguk2")]
+position = Vector2(1148, 583)
+scale = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UiCourse" parent="CanvasLayer" instance=ExtResource("8_a7ffh")]

@@ -32,15 +32,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ef808"]
-size = Vector2(28, 26)
+size = Vector2(32, 26)
 
 [node name="Vent" type="Node2D" groups=["vent"]]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["vent"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_ckdnf")
-frame_progress = 0.213361
+autoplay = "default"
+frame = 1
+frame_progress = 0.275259
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ef808")

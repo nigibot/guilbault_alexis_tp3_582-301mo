@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://dw0s04ip1b1tk"]
+
+[ext_resource type="Texture2D" uid="uid://b1vw1mffdbx5n" path="res://assets/images/jump_pad.png" id="1_3kou5"]
+[ext_resource type="Script" uid="uid://cs02ckdpwjk4k" path="res://scenes/objets/jump_pad.gd" id="1_3s6lw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s6lw"]
+atlas = ExtResource("1_3kou5")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7brkk"]
+atlas = ExtResource("1_3kou5")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpc87"]
+atlas = ExtResource("1_3kou5")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qk5a"]
+atlas = ExtResource("1_3kou5")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oo2n"]
+atlas = ExtResource("1_3kou5")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq67n"]
+atlas = ExtResource("1_3kou5")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iui8y"]
+atlas = ExtResource("1_3kou5")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40prt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s6lw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7brkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpc87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qk5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oo2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq67n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iui8y")
+}],
+"loop": true,
+"name": &"spring",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3kou5"]
+radius = 33.0
+height = 66.0
+
+[node name="JumpPad" type="Node2D"]
+script = ExtResource("1_3s6lw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_40prt")
+animation = &"idle"
+
+[node name="Area2D" type="Area2D" parent="." groups=["jumppad"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 32)
+shape = SubResource("CapsuleShape2D_3kou5")
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

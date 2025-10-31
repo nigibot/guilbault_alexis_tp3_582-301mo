@@ -45,7 +45,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="game" type="Node2D"]
+[node name="lac_azur1" type="Node2D"]
 metadata/_edit_vertical_guides_ = [13824.0, 13825.0]
 
 [node name="Background" type="Node2D" parent="."]
