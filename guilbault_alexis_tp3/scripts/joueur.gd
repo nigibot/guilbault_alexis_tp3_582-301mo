@@ -15,6 +15,8 @@ var lap = 1
 var boostitem = false
 var boosttimer = 0
 
+var accelerating = 0
+
 var rng = RandomNumberGenerator.new()
 
 var gravityMode = false
@@ -49,12 +51,11 @@ func _input(_event):
 			$"./AudioStreamPlayer".play()
 	
 	if Input.is_action_pressed("Accelerate"):
-		if hspeed < maxspeed:
-			hspeed += 0.2
-	
-	if Input.is_action_pressed("Deccelerate"):
-		if hspeed > minspeed:
-			hspeed -= 0.3
+		accelerating = 1
+	elif Input.is_action_pressed("Deccelerate"):
+		accelerating = -1
+	else:
+		accelerating = 0
 	
 	if Input.is_action_pressed("Item") && boostitem == true:
 		print("BOOOOOSTTT !!!")
@@ -84,6 +85,12 @@ func _process(_delta: float) -> void:
 		States.BOOST:
 			maxspeed = 20
 			hspeed = maxspeed
+	
+	match accelerating:
+		-1:
+			hspeed -= 0.15
+		1:
+			hspeed += 0.1
 	
 	if hspeed < minspeed:
 		hspeed = minspeed
