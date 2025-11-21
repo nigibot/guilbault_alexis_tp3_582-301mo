@@ -1,5 +1,5 @@
-# guilbault_alexis_tp2_582_301MO
-TP2 du cours d'interactivité ludique
+# guilbault_alexis_tp3_582_301MO
+TP3 du cours d'interactivité ludique
 
 ## Contrôles
 W ou Fléche haut : Monter
@@ -14,4 +14,6 @@ M Mettre en pause/continuer la musique
 
 Z ou Espace : Boost, Commencer jeu
 
-*NOTE : La 3e course, forêt cramoisie 1, est dans les fichiers, mais elle sera recyclée pour un futur TP ainsi que ses objets associés (vent et feuilles).*
+*NOTE : Pas compatible avec l'arcade, finalement (ou en tout cas, pas testé)*
+
+Musique par Raphaël Lefebvre
