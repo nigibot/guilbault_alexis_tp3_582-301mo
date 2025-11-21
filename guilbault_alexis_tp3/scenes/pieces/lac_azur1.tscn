@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://csbethk5kg4nc"]
+[gd_scene load_steps=15 format=3 uid="uid://csbethk5kg4nc"]
 
 [ext_resource type="Texture2D" uid="uid://cac0viiq1khkp" path="res://assets/images/sun.png" id="1_3ihvp"]
 [ext_resource type="Texture2D" uid="uid://b07l2l3sikflk" path="res://assets/images/floor_azur.png" id="1_xjk6u"]
-[ext_resource type="AudioStream" uid="uid://bmmwoe5wtscem" path="res://assets/audio/atmosphere/ambiance_vagues.mp3" id="2_2o42i"]
 [ext_resource type="Texture2D" uid="uid://bu4qpp1k4ppbw" path="res://assets/images/boat.png" id="2_t7ho8"]
 [ext_resource type="PackedScene" uid="uid://cjtrykxram8m" path="res://scenes/objets/hors_piste.tscn" id="2_vayh8"]
 [ext_resource type="PackedScene" uid="uid://ci40te88fd7uq" path="res://scenes/objets/but.tscn" id="4_3ihvp"]
@@ -67,15 +66,6 @@ scale = Vector2(12, 0.097)
 color = Color(0, 0.498039, 1, 1)
 polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 uv = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Background/eau"]
-position = Vector2(566, 319.588)
-stream = ExtResource("2_2o42i")
-volume_db = 5.429
-autoplay = true
-max_distance = 2435.0
-attenuation = 0.249999
-parameters/looping = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background"]
 position = Vector2(1360, 256)

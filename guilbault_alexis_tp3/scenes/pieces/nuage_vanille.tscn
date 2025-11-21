@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dudytaqa6d5wi"]
+[gd_scene load_steps=12 format=3 uid="uid://dudytaqa6d5wi"]
 
 [ext_resource type="Texture2D" uid="uid://4pujpsocunfy" path="res://assets/images/floor_vanilla.png" id="1_pppfp"]
 [ext_resource type="PackedScene" uid="uid://ci40te88fd7uq" path="res://scenes/objets/but.tscn" id="2_2e12x"]
 [ext_resource type="PackedScene" uid="uid://tuilrnuh1pce" path="res://scenes/objets/hole_nuage.tscn" id="2_atu2h"]
 [ext_resource type="PackedScene" uid="uid://bntud7twsv0pf" path="res://scenes/objets/joueur.tscn" id="3_56k86"]
 [ext_resource type="PackedScene" uid="uid://dw0s04ip1b1tk" path="res://scenes/objets/jump_pad.tscn" id="3_ctt7c"]
+[ext_resource type="Texture2D" uid="uid://bfdedr8i213d2" path="res://assets/images/cloud_bg.png" id="3_ghyg5"]
 [ext_resource type="PackedScene" uid="uid://g7ywuwe5papo" path="res://scenes/objets/boost.tscn" id="4_e7s5v"]
 [ext_resource type="PackedScene" uid="uid://dce2q1d6u7ec" path="res://scenes/objets/ui_course.tscn" id="5_inxbo"]
 
@@ -68,6 +69,369 @@ sprite_frames = SubResource("SpriteFrames_1v4ti")
 position = Vector2(8126.28, 456.1)
 scale = Vector2(500, 2)
 sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="NuageBackground" type="Node2D" parent="plancher"]
+position = Vector2(-2, 0)
+
+[node name="CloudBg" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(65, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg2" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(189, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg3" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(314, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg4" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(438, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg5" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(562, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg6" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(686, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg7" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(811, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg8" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(935, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg9" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(1059, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg10" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(1183, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg11" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(1422, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg12" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(1546, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg13" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(1670, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg14" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(1794, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg15" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(1918, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg16" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(2486, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg17" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(2610, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg18" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(2734, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg19" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(2858, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg20" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(3150, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg21" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(3274, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg22" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(3398, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg23" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(3522, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg24" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(3647, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg25" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(3771, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg26" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(7500, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg27" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(7624, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg28" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(7748, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg29" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(7872, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg30" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(7997, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg31" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(8121, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg32" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(8246, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg33" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(8370, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg34" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(8494, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg35" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(8618, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg36" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(8743, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg37" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(8867, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg38" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(8991, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg39" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(9115, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg40" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(9239, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg41" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(9363, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg42" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(9488, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg43" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(10843, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg44" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(10967, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg45" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(11091, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg46" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(11216, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg47" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(11344, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg48" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(11627, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg49" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(11751, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg50" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(11875, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg51" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(12000, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg52" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(12128, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg53" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(12252, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg54" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(12376, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg55" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(12665, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg56" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(12789, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg57" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(12913, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg58" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(13038, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg59" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(13162, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg60" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(13286, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg61" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(13571, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg62" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(13695, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg63" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(13819, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg64" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(13944, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg65" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(14068, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg66" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(14192, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg67" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(14316, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg68" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(14440, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg69" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(15717, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg70" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(15841, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg71" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(15965, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
+
+[node name="CloudBg72" type="Sprite2D" parent="plancher/NuageBackground"]
+position = Vector2(16089, 232)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ghyg5")
 
 [node name="Trous" type="Node2D" parent="."]
 position = Vector2(-2, 0)
